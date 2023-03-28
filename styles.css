@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: whitesmoke;
+}
+
+body{
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#headerTitle{
+    color: rgb(218,219,215);
+    font-size: 54px;
+    font-weight: bold;
+    text-shadow: 0 0 1px black, 0 0 22px cyan;
+    margin: 30px auto 50px auto;
+    user-select: none;
+}
+
+main{
+    margin: 0 auto;
+}
+
+#calculatorFrame_Div{
+    border: solid 1px red;
+}
