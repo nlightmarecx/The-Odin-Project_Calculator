@@ -1,11 +1,16 @@
+:root{
+    --red: solid 1px red;
+    --cyan: solid 1px cyan;
+}
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: whitesmoke;
 }
 
 body{
+    color: rgb(218,219,215);
     background-color: black;
     align-items: center;
     justify-content: center;
@@ -13,19 +18,96 @@ body{
     flex-direction: column;
 }
 
-#headerTitle{
-    color: rgb(218,219,215);
-    font-size: 54px;
-    font-weight: bold;
-    text-shadow: 0 0 1px black, 0 0 22px cyan;
-    margin: 30px auto 50px auto;
-    user-select: none;
-}
+        #headerTitle{
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 0 0 1px black, 0 0 22px cyan;
+            margin: 30px auto 50px auto;
+            user-select: none;
+        }
 
-main{
-    margin: 0 auto;
-}
+    main{
+        margin: 0 auto;
+    }
 
-#calculatorFrame_Div{
-    border: solid 1px red;
-}
+        #calculator_Div{
+            border-radius: 5%;
+            margin: auto 0;
+            box-shadow: 0 0 8px cyan inset;
+            display: flex;
+            flex-direction: column;
+        } 
+
+            #calculatorScreen_Div{
+                height: 40%;  
+                border-bottom: solid 3px rgba(0, 200, 200, 0.4);
+                border-top-left-radius: 10%;
+                border-top-right-radius: 10%;
+                border-bottom-left-radius: 2%;
+                border-bottom-right-radius: 2%;
+                box-shadow: 0 2px 5px rgba(0, 100, 205, 0.5);
+                display: flex;
+                flex-direction: column;
+            }
+
+                #upperOperand_Div{
+                    height: 75%;
+                    position: relative;
+                }
+
+                    #calculationHistory{
+                        position: absolute;
+                        bottom: 10px;
+                        right: 43px;
+                        padding: 5px;
+                    }
+
+                #lowerOperand_Div{
+                    height: 25%;
+                    padding: 20px 28px;
+                    align-items: center;
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                    #totalNum{
+                        font-size: 3em;
+                        padding-right: 22px;
+                    }
+
+            #calculatorKeyboard_Div{
+                font-size: 2.1em;
+                font-weight: bolder;
+                text-shadow: 
+                    0 0 1px black, 
+                    0 0 10px rgba(0, 105, 205, 0.75);
+                height: 60%;
+                padding: 20px;
+                display: grid;
+                gap: 10px;
+                user-select: none;
+            }
+
+                .keyBoardButton{
+                    text-align: center;
+                    border: double 1px rgba(0, 205, 205, 0.5);
+                    background-image: radial-gradient(
+                        rgba(65, 105, 225, 0.12),
+                        rgba(65, 105, 225, 0.44)
+                    );
+                    padding: 5px 10px;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+
+                .keyBoardButton:hover{
+                    cursor: pointer; 
+                    box-shadow: 0 0 7px, 0 0 15px royalblue inset;
+                    background-image: radial-gradient(
+                         rgba(0, 255, 255, 0.35),
+                         rgba(0, 255, 255, 0.60)
+                     );
+                     scale: 1.02;
+                     transition: box-shadow 0.15s;
+                 }
