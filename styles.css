@@ -10,7 +10,7 @@
 }
 
 body{
-    color: rgb(218,219,215);
+    color: rgb(218, 219, 215);
     background-color: black;
     align-items: center;
     justify-content: center;
@@ -55,7 +55,7 @@ body{
                     position: relative;
                 }
 
-                    #calculationHistory{
+                    #upperOperand{
                         position: absolute;
                         bottom: 10px;
                         right: 43px;
@@ -70,7 +70,7 @@ body{
                     justify-content: space-between;
                 }
 
-                    #totalNum{
+                    #lowerOperand{
                         font-size: 3em;
                         padding-right: 22px;
                     }
@@ -111,3 +111,34 @@ body{
                      scale: 1.02;
                      transition: box-shadow 0.15s;
                  }
+
+    footer {
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        margin: 35px auto 5px auto;
+        font-size: 20px;
+    }
+
+        footer > p{
+            position: relative;
+            text-decoration: none;
+        }
+
+        a:link{
+            text-decoration: none;
+        }
+
+        #github_Logo{
+            position: absolute;
+            height: 22px;
+            right: -25px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #github_Logo:hover{
+            transform: rotate(360deg) scale(1.2);
+            color: rgba(0, 255, 255, 0.95);
+        }
+
+        

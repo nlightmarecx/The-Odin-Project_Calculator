@@ -1,3 +1,5 @@
+//from the js code below, add on click function that displays clicked button content in screen_Div 
+
 const calculator_Div = document.getElementById("calculator_Div");
 
 const screen_Div = document.getElementById("calculatorScreen_Div");
@@ -13,7 +15,7 @@ const calculatorHeight = document.getElementById("calculator_Div").style.height 
 //.......................KEYBOARD DIV...............................
 //....................................................MAKE KEYBOARD
 let symbols = [
-    "AC", "C", "÷", 
+    "AC", "⌫", "÷", 
     "7", "8", "9", "×", 
     "4", "5", "6", "−",
     "1", "2", "3", "+", 
@@ -29,28 +31,118 @@ function createKeyboard(){
     for(let i=0; i<20; i++){
         const button = document.createElement("button");
         button.setAttribute("class", "keyBoardButton");
-        button.setAttribute("id", "button_"+i);
+        button.setAttribute("id", "button"+i);
         keyboard_Div.insertAdjacentElement("beforeend", button);
+        $("#button"+i).text(symbols[i])
+
         
-        $("#button_"+i).text(symbols[i])
-        //button.addEventListener('click', getButtonContent);
+        if(i>2 && i<17 && i != 6 && i != 10 && i != 14){
+            button.setAttribute("class", "keyBoardButton digit");
+        }
+        if(i === 2 || i === 6 || i === 10 || i === 14){
+            button.setAttribute("class", "keyBoardButton operator");
+        };
+
     }
     document.getElementsByClassName("keyBoardButton")[18].style.display = "none";
     document.getElementsByClassName("keyBoardButton")[19].style.display = "none";
 }
 
-console.log($("#button4").attr("value"));
 //....................................................ADD BUTTONS CONTENT 
 
 
 //....................................................BUTTONS ARE CLICKED
-function getButtonContent(){
+/*
+const AC = $("#button0");
+const DEL = $("#button1");
+const SUM = $("#button17");
 
+let upperOpperand = document.getElementById("upperOperand");
+let lowerOpperand = document.getElementById("lowerOperand");
+
+let processingNum = "";
+let previousNumber = "";
+let currentNumber = "";
+let operation = null;
+
+function updateScreen(){
+    lowerOpperand.innerHTML = currentNumber;
 }
 
+function clearCalculator(){
+    currentNumber = "";
+    previousNumber = "";
+    operation = null;
+}
+
+function appendDigit(digit) {
+    if (digit === "." && currentOperand.includes(".")) return;
+    currentOperand += digit;
+}
+  
+function chooseOperation(operator) {
+    if (currentOperand === "") return;
+    if (previousOperand !== "") {
+        calculate();
+    }
+    operation = operator;
+    previousOperand = currentOperand;
+    currentOperand = "";
+}
+
+function calculate() {
+    let result;
+    const prev = parseFloat(previousOperand);
+    const current = parseFloat(currentOperand);
+    if (isNaN(prev) || isNaN(current)) return;
+    switch (operation) {
+      case "+":
+        result = prev + current;
+        break;
+      case "-":
+        result = prev - current;
+        break;
+      case "×":
+        result = prev * current;
+        break;
+      case "÷":
+        result = prev / current;
+        break;
+      default:
+        return;
+    }
+    currentOperand = result.toString();
+    operation = null;
+    previousOperand = "";
+  }
+
+$(".digit").click(function(){
+    let value = $(this).text();
+    processingNum += value;
+    currentNumber = processingNum;
+    lowerOpperand.text(currentNumber);
+});
+
+$(".operator").click(function(){
+    let value = $(this).text();
+    processingNum += value;
+    currentNumber = processingNum;
+    lowerOpperand.text(currentNumber);
+});
+
+$("#button0").click(function(){
+    processingNum = "";
+    lowerOpperand.text("0");
+  });
+
+$("#button1").click(function(){
+    processingNum = processingNum.slice(0, -1);
+    lowerOpperand.text(processingNum);
+});
+*/
 //....................................................CSS BUTTON SHAPES, COLORS
 document.getElementsByClassName("keyBoardButton")[0].style.cssText = 
-"border-radius: 20% 0 0 0; background-color: rgba(255, 0, 0, 0.75); grid-column: 1/3";
+"border-radius: 15% 0 0 0; background-color: rgba(255, 0, 0, 0.75); grid-column: 1/3";
 document.getElementsByClassName("keyBoardButton")[1].style.backgroundColor = "rgba(255, 0, 0, 0.75)";
 document.getElementsByClassName("keyBoardButton")[2].style.cssText = 
 "border-radius: 0 20% 0 0; font-size: 2.1em; background-color: rgba(0, 205, 255, 0.75)";
