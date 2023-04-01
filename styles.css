@@ -76,8 +76,6 @@ body{
                     }
 
             #calculatorKeyboard_Div{
-                font-size: 2.1em;
-                font-weight: bolder;
                 text-shadow: 
                     0 0 1px black, 
                     0 0 10px rgba(0, 105, 205, 0.75);
@@ -90,7 +88,9 @@ body{
 
                 .keyBoardButton{
                     text-align: center;
+                    font-size: 1.5em;
                     border: double 1px rgba(0, 205, 205, 0.5);
+                    background-color: black;
                     background-image: radial-gradient(
                         rgba(65, 105, 225, 0.12),
                         rgba(65, 105, 225, 0.44)

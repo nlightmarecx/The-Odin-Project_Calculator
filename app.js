@@ -9,24 +9,15 @@ const CALCULATOR_HEIGHT = CALCULATOR_WIDTH*2
 const calculatorWidth = document.getElementById("calculator_Div").style.width = CALCULATOR_WIDTH+"px";
 const calculatorHeight = document.getElementById("calculator_Div").style.height = CALCULATOR_HEIGHT+"px";
 
-//let SIZE_BOARD_X = boardSizeSlider.value;
-//let SIZE_BOARD_Y = SIZE_BOARD_X*2;
-
-//let COLOR_BORDER = "rgba(211, 211, 211, 0.25)";
-//let SIZE_BORDER = 1;
-
-//let SIZE_SQUARE_X = BOARD_WIDTH/SIZE_BOARD_X-SIZE_BORDER;
-//let SIZE_SQUARE_Y = BOARD_HEIGHT/SIZE_BOARD_Y-SIZE_BORDER;
-
 //......................CALCULATOR DIV..............................
 //.......................KEYBOARD DIV...............................
 //....................................................MAKE KEYBOARD
 let symbols = [
-    "AC", "-/+", "%", "/", 
-    "7", "8", "9", "x", 
-    "4", "5", "6", "-",
+    "AC", "C", "÷", 
+    "7", "8", "9", "×", 
+    "4", "5", "6", "−",
     "1", "2", "3", "+", 
-    "", "0", ".", "="
+    ".", "0", "="
 ]
 
 createKeyboard();
@@ -36,46 +27,43 @@ function createKeyboard(){
     keyboard_Div.style.gridTemplateRows = `repeat(5, 1fr)`;
 
     for(let i=0; i<20; i++){
-        const button = document.createElement("div");
+        const button = document.createElement("button");
         button.setAttribute("class", "keyBoardButton");
         button.setAttribute("id", "button_"+i);
         keyboard_Div.insertAdjacentElement("beforeend", button);
         
         $("#button_"+i).text(symbols[i])
-        //button.addEventListener('mouseover', colorDiv);
+        //button.addEventListener('click', getButtonContent);
     }
+    document.getElementsByClassName("keyBoardButton")[18].style.display = "none";
+    document.getElementsByClassName("keyBoardButton")[19].style.display = "none";
 }
 
+console.log($("#button4").attr("value"));
 //....................................................ADD BUTTONS CONTENT 
 
-/*
-for (let i=0; i<9; i++){
-    let digitButton = document.getElementsByClassName("digitButton")[i];
-    digitButton.innerHTML = i+1;
 
-    digitButton.setAttribute("id", "button"+i+1);
+//....................................................BUTTONS ARE CLICKED
+function getButtonContent(){
+
 }
 
-document.getElementsByClassName("keyBoardButton")[17].setAttribute("id", "0");
-$("#0").text("0");
-
-document.getElementsByClassName("keyBoardButton")[0].setAttribute("id", "AC");
-$("#AC").text("AC");
-
-document.getElementsByClassName("keyBoardButton")[1].setAttribute("id", "AC");
-$("#AC").text("AC");
-*/
-
-//....................................................ROUND BUTTON CORNERS
-const topLeftButton = document.getElementsByClassName("keyBoardButton")[0];
-const topRightButton = document.getElementsByClassName("keyBoardButton")[3];
-const bottomRightButton = document.getElementsByClassName("keyBoardButton")[19];
-const bottomLeftButton = document.getElementsByClassName("keyBoardButton")[16];
-
-topLeftButton.style.borderRadius = "20% 0 0 0";
-topRightButton.style.borderRadius = "0 20% 0 0";
-bottomRightButton.style.borderRadius = "0 0 20% 0";
-bottomLeftButton.style.borderRadius = "0 0 0 20%";
+//....................................................CSS BUTTON SHAPES, COLORS
+document.getElementsByClassName("keyBoardButton")[0].style.cssText = 
+"border-radius: 20% 0 0 0; background-color: rgba(255, 0, 0, 0.75); grid-column: 1/3";
+document.getElementsByClassName("keyBoardButton")[1].style.backgroundColor = "rgba(255, 0, 0, 0.75)";
+document.getElementsByClassName("keyBoardButton")[2].style.cssText = 
+"border-radius: 0 20% 0 0; font-size: 2.1em; background-color: rgba(0, 205, 255, 0.75)";
+document.getElementsByClassName("keyBoardButton")[6].style.cssText = 
+"font-size: 1.8em; background-color: rgba(0, 205, 255, 0.75)";
+document.getElementsByClassName("keyBoardButton")[10].style.cssText = 
+"font-size: 1.8em; background-color: rgba(0, 205, 255, 0.75)";
+document.getElementsByClassName("keyBoardButton")[14].style.cssText = 
+"font-size: 1.8em; background-color: rgba(0, 205, 255, 0.75)";
+document.getElementsByClassName("keyBoardButton")[15].style.borderRadius = "0 0 0 20%";
+document.getElementsByClassName("keyBoardButton")[16].style.gridColumn = "2/4";
+document.getElementsByClassName("keyBoardButton")[17].style.cssText = 
+"border-radius: 0 0 20% 0; font-size: 1.8em; background-color: rgba(140, 45, 225, 0.75)";
 
 //....................................................CSS BUTTONS ARE CLICKED
 $('.keyBoardButton').mousedown(function(){
@@ -90,3 +78,4 @@ $('.keyBoardButton').mouseenter(function(){
 $('.keyBoardButton').mouseleave(function(){
     $(this).css({'scale': '1', 'box-shadow': 'none'});
 })
+
