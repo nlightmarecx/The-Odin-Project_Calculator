@@ -1,4 +1,4 @@
-//from the js code below, add on click function that displays clicked button content in screen_Div 
+const test = () => console.log("works");
 
 const calculator_Div = document.getElementById("calculator_Div");
 
@@ -52,18 +52,64 @@ function createKeyboard(){
 
 
 //....................................................BUTTONS ARE CLICKED
-/*
 const AC = $("#button0");
 const DEL = $("#button1");
 const SUM = $("#button17");
 
-let upperOpperand = document.getElementById("upperOperand");
-let lowerOpperand = document.getElementById("lowerOperand");
+let upperOperand = document.getElementById("upperOperand");
+let lowerOperand = document.getElementById("lowerOperand");
 
 let processingNum = "";
+let processingOp = "";
 let previousNumber = "";
 let currentNumber = "";
 let operation = null;
+
+
+
+
+/*
+$(".digit").click(function(){
+    let digitValue = $(this).text();
+    processingNum += digitValue;
+    currentNumber = processingNum;
+    lowerOperand.innerHTML = currentNumber;
+});
+
+
+$(".operator").click(function(){
+    let operandValue = $(this).text();
+    processingOp = operandValue;
+
+    processingNum += operandValue;
+
+
+
+});
+/*
+$(".operator").click(function(){
+    lowerOperand.innerHTML = "";
+    previousNumber = currentNumber;
+    
+    let operandValue = $(this).text();
+    processingNum += operandValue;
+
+    upperOperand.innerHTML = currentNumber;
+    lowerOperand.innerHTML = "0";
+});
+
+$("#button0").click(function(){
+    processingNum = "0";
+    lowerOperand.innerHTML = processingNum;
+    upperOperand.innerHTML = "";
+  });
+
+$("#button1").click(function(){
+    processingNum = processingNum.slice(0, -1);
+    lowerOperand.innerHTML = processingNum;
+});
+
+
 
 function updateScreen(){
     lowerOpperand.innerHTML = currentNumber;
@@ -115,30 +161,6 @@ function calculate() {
     operation = null;
     previousOperand = "";
   }
-
-$(".digit").click(function(){
-    let value = $(this).text();
-    processingNum += value;
-    currentNumber = processingNum;
-    lowerOpperand.text(currentNumber);
-});
-
-$(".operator").click(function(){
-    let value = $(this).text();
-    processingNum += value;
-    currentNumber = processingNum;
-    lowerOpperand.text(currentNumber);
-});
-
-$("#button0").click(function(){
-    processingNum = "";
-    lowerOpperand.text("0");
-  });
-
-$("#button1").click(function(){
-    processingNum = processingNum.slice(0, -1);
-    lowerOpperand.text(processingNum);
-});
 */
 //....................................................CSS BUTTON SHAPES, COLORS
 document.getElementsByClassName("keyBoardButton")[0].style.cssText = 
