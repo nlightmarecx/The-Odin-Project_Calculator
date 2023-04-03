@@ -48,120 +48,61 @@ function createKeyboard(){
     document.getElementsByClassName("keyBoardButton")[19].style.display = "none";
 }
 
-//....................................................ADD BUTTONS CONTENT 
-
-
 //....................................................BUTTONS ARE CLICKED
-const AC = $("#button0");
-const DEL = $("#button1");
-const SUM = $("#button17");
-
-let upperOperand = document.getElementById("upperOperand");
-let lowerOperand = document.getElementById("lowerOperand");
-
-let processingNum = "";
-let processingOp = "";
-let previousNumber = "";
-let currentNumber = "";
-let operation = null;
-
-
-
-
-/*
-$(".digit").click(function(){
-    let digitValue = $(this).text();
-    processingNum += digitValue;
-    currentNumber = processingNum;
-    lowerOperand.innerHTML = currentNumber;
-});
-
-
-$(".operator").click(function(){
-    let operandValue = $(this).text();
-    processingOp = operandValue;
-
-    processingNum += operandValue;
-
-
-
-});
-/*
-$(".operator").click(function(){
-    lowerOperand.innerHTML = "";
-    previousNumber = currentNumber;
-    
-    let operandValue = $(this).text();
-    processingNum += operandValue;
-
-    upperOperand.innerHTML = currentNumber;
-    lowerOperand.innerHTML = "0";
-});
-
-$("#button0").click(function(){
-    processingNum = "0";
-    lowerOperand.innerHTML = processingNum;
-    upperOperand.innerHTML = "";
-  });
-
-$("#button1").click(function(){
-    processingNum = processingNum.slice(0, -1);
-    lowerOperand.innerHTML = processingNum;
-});
-
-
-
-function updateScreen(){
-    lowerOpperand.innerHTML = currentNumber;
-}
-
-function clearCalculator(){
-    currentNumber = "";
-    previousNumber = "";
-    operation = null;
-}
-
-function appendDigit(digit) {
-    if (digit === "." && currentOperand.includes(".")) return;
-    currentOperand += digit;
-}
-  
-function chooseOperation(operator) {
-    if (currentOperand === "") return;
-    if (previousOperand !== "") {
-        calculate();
+class Calculator {
+    constructor(previousOperandTextElement, currentOperandTextElement){
+        this.previousOperandTextElement = previousOperandTextElement
+        this.currentOperandTextElement = currentOperandTextElement
+        this.clearAll()
     }
-    operation = operator;
-    previousOperand = currentOperand;
-    currentOperand = "";
+
+    clearAll(){
+        this.currentOperand = "";
+        this.previousOperand = "";
+        this.operation = undefined;
+    }
+
+    delete(){
+
+    }
+
+    appendNumber(number){
+        this.currentOperand
+    }
+
+    chooseOperation(operation){
+
+    }
+
+    compute(){
+
+    }
+
+    updateDisplay(){
+        this.currentOperandTextElement.innerText = this.currentOperand
+    }
 }
 
-function calculate() {
-    let result;
-    const prev = parseFloat(previousOperand);
-    const current = parseFloat(currentOperand);
-    if (isNaN(prev) || isNaN(current)) return;
-    switch (operation) {
-      case "+":
-        result = prev + current;
-        break;
-      case "-":
-        result = prev - current;
-        break;
-      case "×":
-        result = prev * current;
-        break;
-      case "÷":
-        result = prev / current;
-        break;
-      default:
-        return;
-    }
-    currentOperand = result.toString();
-    operation = null;
-    previousOperand = "";
-  }
-*/
+
+const numberButtons = document.querySelectorAll('[data-number]');
+const operationButtons = document.querySelectorAll('[data-operation]');
+const equalsButton = document.querySelector('[data-equals]');
+const deleteButton = document.querySelector('[data-delete]');
+const allClearButton = document.querySelector('[data-all-clear]');
+const previousOperandTextElement = document.querySelector('[data-previous-operand]');
+const currentOperandTextElement = document.querySelector('[data-current-operand]');
+
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.innerText)
+        calculator.updateDisplay();
+    })
+})
+
+
+
 //....................................................CSS BUTTON SHAPES, COLORS
 document.getElementsByClassName("keyBoardButton")[0].style.cssText = 
 "border-radius: 15% 0 0 0; background-color: rgba(255, 0, 0, 0.75); grid-column: 1/3";
